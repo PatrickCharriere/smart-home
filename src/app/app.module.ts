@@ -9,8 +9,14 @@ import { SmartObjectComponent } from './smart-object/smart-object.component';
 
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { PlotlyModule } from 'angular-plotly.js';
+import { RouterModule, Routes } from '@angular/router';
 
 PlotlyModule.plotlyjs = PlotlyJS;
+
+const routes: Routes = [
+  { path: 'smart-objects', component: SmartObjectComponent },
+  { path: 'settings', component: SmartObjectComponent },
+];
 
 @NgModule({
   declarations: [
@@ -23,7 +29,9 @@ PlotlyModule.plotlyjs = PlotlyJS;
     AppRoutingModule,
     HttpClientModule,
     PlotlyModule,
+    RouterModule.forRoot(routes),
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })

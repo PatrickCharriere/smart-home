@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Object } from '../app.component';
 
 @Component({
   selector: 'app-smart-object',
@@ -6,5 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./smart-object.component.css']
 })
 export class SmartObjectComponent {
-  @Input() title = '';
+  @Input() data: Object = {
+    name: '',
+    address: ''
+  };
+
 }

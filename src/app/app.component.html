@@ -1,4 +1,10 @@
-<h1>Smart Home</h1>
+<h1>{{title}}</h1>
 
-<app-smart-object title="Marine tank"></app-smart-object>
+<nav>
+    <ul>
+      <li><a routerLink="/smart-objects" routerLinkActive="active" ariaCurrentWhenActive="page">First Component</a></li>
+      <li><a routerLink="/settings" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component</a></li>
+    </ul>
+  </nav>
 
+<app-smart-object *ngFor="let object of objects;" [data]="object"></app-smart-object>

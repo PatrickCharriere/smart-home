@@ -1,5 +1,30 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
+
+export interface Reading {
+  value: number,
+  timestamp: number,
+}
+
+export interface Sensor {
+  name: string,
+  thresholds: {
+    high: number,
+    low: number,
+  }
+  readings: Reading[],
+}
+
+export interface Actuator {
+  name: string,
+}
+
+export interface Object {
+  name: string,
+  address: string,
+  sensors?: Sensor[],
+  actuators?: Actuator[],
+}
 
 @Component({
   selector: 'app-root',
@@ -7,5 +32,11 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'smart-home';
+  title = '205 Marlborough';
+
+  objects: Object[] = [{
+    name: 'Marine tank',
+    address: "http://124.150.75.142"
+  }]
+  
 }

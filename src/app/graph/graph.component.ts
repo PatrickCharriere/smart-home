@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./graph.component.css']
 })
 export class GraphComponent {
-  @Input() title = '';
-  serverUrl = 'http://124.150.75.142/temperature';
+  @Input() address = '';
+  serverUrl = '';
 
   constructor(private http: HttpClient) {
   }
@@ -18,11 +18,14 @@ export class GraphComponent {
     data: [
         { x: ['2023-02-04 22:23:00'], y: [25], type: 'scatter', mode: 'lines+points', marker: {color: 'red'} },
     ],
-    layout: {width: 800, height: 450, title: 'Temperatures'}
+    layout: {width: 600, height: 250, title: 'Temperature'}
   };
 
 
   ngOnInit() {
+
+    this.serverUrl = this.address + '/temperature';
+    console.log(this.serverUrl)
 
     let request = this.http.get(this.serverUrl, {
       responseType: 'text'
